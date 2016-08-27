@@ -10,8 +10,9 @@ Gem::Specification.new do |spec|
   spec.email         = ['masahiro.iuchi@gmail.com']
 
   spec.summary       = 'Translation proxy by wovnrb.'
-  spec.description   = 'Translation proxy by wovnrb.'
+  spec.description   = 'Translation proxy by wovnrb and WOVN.io.'
   spec.homepage      = 'https://github.com/masiuchi/wovn-reverse_proxy'
+  spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^test/}) }
   spec.bindir        = 'exe'
