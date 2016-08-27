@@ -34,5 +34,5 @@ proxy_set_header X-Wovn-Secret-Key secret;
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/wovn-reverse_proxy.
+Bug reports and pull requests are welcome on GitHub at https://github.com/masiuchi/wovn-reverse_proxy.
 
