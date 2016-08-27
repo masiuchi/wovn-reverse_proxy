@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require 'wovn/reverse_proxy'
+
+Wovn::ReverseProxy::Application.run!
