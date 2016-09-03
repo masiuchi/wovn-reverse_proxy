@@ -24,9 +24,21 @@ describe Wovn::ReverseProxy::Wovnrb do
     settings(middleware)['url_pattern'].must_equal 'path'
   end
 
-  it 'has "use_proxy = true" setting' do
+  it 'has "use_proxy = true" when value is "TRUE"' do
     middleware = Wovn::ReverseProxy::Wovnrb.new(app)
-    middleware.call env('HTTP_X_WOVN_USE_PROXY' => 'false')
+    middleware.call env('HTTP_X_WOVN_USE_PROXY' => 'TRUE')
+    settings(middleware)['use_proxy'].must_equal true
+  end
+
+  it 'has "use_proxy = true" when value is "on"' do
+    middleware = Wovn::ReverseProxy::Wovnrb.new(app)
+    middleware.call env('HTTP_X_WOVN_USE_PROXY' => 'on')
+    settings(middleware)['use_proxy'].must_equal true
+  end
+
+  it 'has "use_proxy = true" when value is "1"' do
+    middleware = Wovn::ReverseProxy::Wovnrb.new(app)
+    middleware.call env('HTTP_X_WOVN_USE_PROXY' => '1')
     settings(middleware)['use_proxy'].must_equal true
   end
 
