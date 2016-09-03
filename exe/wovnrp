@@ -3,6 +3,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require 'rack'
 require 'wovn/reverse_proxy'
 
-Wovn::ReverseProxy::Application.run!
+Rack::Server.start(
+  app: Wovn::ReverseProxy::Wovnrb.new(
+    Wovn::ReverseProxy::RackReverseProxy.new
+  ),
+  Port: 4567
+)
