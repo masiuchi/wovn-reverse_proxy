@@ -10,3 +10,4 @@
 /wovn_error.log
 *.swp
 *.gem
+/.ruby-version
