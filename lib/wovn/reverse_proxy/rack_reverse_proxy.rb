@@ -6,7 +6,8 @@ module Wovn
     class RackReverseProxy < Rack::ReverseProxy
       def call(env)
         host = env['HTTP_X_WOVN_HOST'] || env['HTTP_HOST']
-        return invalid_host if host.nil? || host.empty?
+        host = host.to_s
+        return invalid_host if host.empty?
 
         env['SERVER_NAME'] = env['HTTP_HOST'] = env['HTTP_X_FORWARDED_HOST']
 
