@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 1.9.3'
 
+  spec.add_dependency 'rack', '>= 1.6.4'
   spec.add_dependency 'rack-reverse-proxy', '~> 0.11'
   spec.add_dependency 'wovnrb', '~> 0.2'
 
