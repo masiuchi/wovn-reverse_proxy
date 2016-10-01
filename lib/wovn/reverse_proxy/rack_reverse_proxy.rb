@@ -8,9 +8,14 @@ module Wovn
         host = env['HTTP_X_WOVN_HOST'] || env['HTTP_HOST']
         return invalid_host if host.nil? || host.empty?
 
+        env['SERVER_NAME'] = env['HTTP_HOST'] = env['HTTP_X_FORWARDED_HOST']
+
         @rules = []
         reverse_proxy '/', host
-        super
+        reverse_proxy_options preserve_host: false
+
+        status, headers, body = super
+        [status, headers, [body.to_s]]
       end
 
       private
