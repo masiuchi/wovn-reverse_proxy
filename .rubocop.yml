@@ -1,2 +1,5 @@
+AllCops:
+  Exclude:
+    - 'test/**/*'
 Style/FrozenStringLiteralComment:
   Enabled: false

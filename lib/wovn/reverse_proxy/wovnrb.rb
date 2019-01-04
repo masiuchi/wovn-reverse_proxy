@@ -23,14 +23,15 @@ module Wovn
           env_key = "HTTP_X_WOVN_#{key.upcase}"
           value = env[env_key]
           next unless value
+
           params[key] = get_appropriate_value(key, value)
         end
       end
 
       def get_appropriate_value(key, value)
-        if key == 'query' || key == 'supported_langs'
+        if %w[query supported_langs].include?(key)
           value = value.split(/,/)
-        elsif key == 'test_mode' || key == 'use_proxy'
+        elsif %w[test_mode use_proxy].include?(key)
           value = true? value
         end
         value
@@ -40,6 +41,7 @@ module Wovn
         return true if value.to_s.casecmp('true').zero?
         return true if value.to_s.casecmp('on').zero?
         return true if value.to_s == '1'
+
         false
       end
     end
