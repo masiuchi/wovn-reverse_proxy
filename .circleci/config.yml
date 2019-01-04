@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby
+    steps:
+      - checkout
+      - run:
+          name: Check Ruby version
+          command: |
+            ruby -v
+      - run:
+          name: Install gems
+          command: |
+            bundle install
+            gem install rubocop
+      - run:
+          name: Run tests
+          command: |
+            bundle exec rake
+            rubocop
+
