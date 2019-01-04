@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'active_support/core_ext/hash/keys'
 require 'rack/lint'
 require 'rack/mock'
 require 'wovn/reverse_proxy/wovnrb'
@@ -11,8 +12,7 @@ describe Wovn::ReverseProxy::Wovnrb do
   it 'has setting_keys' do
     middleware = Wovn::ReverseProxy::Wovnrb.new(app)
     setting_keys = middleware.instance_variable_get('@setting_keys')
-    setting_keys.must_include 'user_token'
-    setting_keys.must_include 'secret_key'
+    setting_keys.must_include 'project_token'
     setting_keys.must_include 'url_pattern'
   end
 

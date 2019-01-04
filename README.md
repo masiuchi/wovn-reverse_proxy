@@ -16,10 +16,9 @@ ProxyPass         / http://localhost:4567/
 ProxyPassReverse  / http://localhost:4567/
 ProxyPreserveHost on
 
-RequestHeader set X_WOVN_HOST       http://localhost:3000
-RequestHeader set X_WOVN_USER_TOKEN IRb6-
-RequestHeader set X_WOVN_SECRET_KEY secret
-RequestHeader set X_WOVN_USE_PROXY  true
+RequestHeader set X_WOVN_HOST          http://localhost:3000
+RequestHeader set X_WOVN_PROJECT_TOKEN IRb6-
+RequestHeader set X_WOVN_USE_PROXY     true
 ```
 
 ### nginx
@@ -28,10 +27,9 @@ RequestHeader set X_WOVN_USE_PROXY  true
 proxy_pass       http://localhost:4567;
 proxy_set_header X-Forwarded-Host $host;
 
-proxy_set_header X-Wovn-Host       http://localhost:3000;
-proxy_set_header X-Wovn-User-Token IRb6-;
-proxy_set_header X-Wovn-Secret-Key secret;
-proxy_set_header X-Wovn-Use-Proxy  true;
+proxy_set_header X-Wovn-Host          http://localhost:3000;
+proxy_set_header X-Wovn-Project-Token IRb6-;
+proxy_set_header X-Wovn-Use-Proxy     true;
 ```
 
 ## Contributing
